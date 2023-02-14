@@ -1,0 +1,34 @@
+
+.revenue__box, .order__box, .products__box, .user__box{
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.revenue__box{
+    background: #fce6d9;
+}
+
+.order__box{
+    background: #ceebe9;
+}
+
+.products__box{
+    background: #e2f2b2;
+}
+
+.user__box{
+    background: #f9e196;
+}
+
+.revenue__box h5, .order__box h5, .products__box h5, .user__box h5{
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #252525;
+    margin-bottom: 20px;
+}
+
+.revenue__box span, .order__box span, .products__box span, .user__box span{
+    color: #252525;
+    font-weight: 600;
+    font-size: 2rem;
+}

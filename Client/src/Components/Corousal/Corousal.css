@@ -1,0 +1,68 @@
+.banner__section{
+    background: #cbe2ff;
+    
+}
+
+.banner__content h2{
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin: 20px 0;
+}
+
+.banner__content p{
+    line-height: 28px;
+}
+
+.buy__button{
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    background: #009694;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.buy__button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.buy__button a:hover{
+    color: #fff;
+    
+}
+
+.banner__content{
+    padding-top: 45px; 
+}
+
+@media only screen and (max-width:992px) {
+    .banner__content h2{
+        font-size: 2rem;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .banner__content h2{
+        font-size: 1.6rem;
+    }
+    .banner__content p{
+        font-size: .9rem;
+    }
+
+    .buy__button{
+        font-size: .9rem;
+    }
+}
+
+@media only screen and (max-width:576px) {
+    .banner__content{
+        padding-top: 0;
+        margin-bottom: 40px;
+    }
+}
+
+
