@@ -20,7 +20,6 @@ const clientlogin = async (req, res) => {
     .catch((err) => res.json({ status: false, user: null, Message: err }));
 };
 const addToCart = (req, res) =>{
-  console.log('at cart');
   clientHelpers
     .addTocart(req.params.id, req.user._id)
     .then(() => res.json({ status: true, message: "Add to cart sucessfully" }))

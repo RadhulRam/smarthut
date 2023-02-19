@@ -6,34 +6,27 @@ const db = require("../config/connection");
 
 module.exports = {
   doClientSignup: async (data) =>
-    new Promise(async (resolve, reject) => {
-      const extphone = await db
-        .get()
+    new Promise((resolve, reject) => {
+      db.get()
         .collection(collection.CLIENT_COLLECTION)
-        .findOne({ phone: data.phone });
-
-      if (extphone == null) {
-        return new Promise(async (resolve, reject) => {
-          data.password = await bcrypt.hash(data.password, 10);
-          db.get()
-            .collection(collection.CLIENT_COLLECTION)
-            .insertOne(data)
-            .then((data) => {
-              resolve(data);
-            })
-            .catch((error) => {
-              reject(error);
-            });
+        .findOne({ phonenumber: data.phonenumber })
+        .then(async (userdetails) => {
+          if (userdetails === null) {
+            data.password = await bcrypt.hash(data.password, 10);
+            db.get()
+              .collection(collection.CLIENT_COLLECTION)
+              .insertOne(data)
+              .then(() => {
+                resolve({ phoneFound: false });
+              })
+              .catch((error) => {
+                reject(error);
+              });
+          } else {
+            resolve({ phoneFound: true });
+          }
         })
-          .then((data) => {
-            resolve(data);
-          })
-          .catch((error) => {
-            reject(error);
-          });
-      } else {
-        resolve({ phoneFound: true });
-      }
+        .catch((error) => reject(error));
     }),
 
   viewproduct: async (data) =>
