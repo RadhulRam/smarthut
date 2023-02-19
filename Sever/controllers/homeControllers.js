@@ -7,19 +7,18 @@ const homeHelper = require("../helpers/homeHelpers");
 
 const clientSignup = AsyncHandler(async (req, res) => {
   const data = req.body;
-  // remove unwated feild from object
-  console.log(data);
+
   homeHelper
     .doClientSignup(data)
     .then((response) => {
       if (response.phoneFound) {
         res.json({ status: false, error: "Duplicate Phone number" });
       } else {
-        res.json({ status: true });
+        res.json({ status: true, message:'successful...' });
       }
     })
     .catch((err) => {
-      console.log(err);
+      res.json({ error: err.message });
     });
 });
 
